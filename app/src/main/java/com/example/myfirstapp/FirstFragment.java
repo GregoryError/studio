@@ -27,6 +27,8 @@ private TextView showCountTextView;
         // Get the count text view
         showCountTextView = fragmentFirstLayout.findViewById(R.id.textview_first);
 
+
+
         return fragmentFirstLayout;
     }
 
@@ -35,6 +37,7 @@ private TextView showCountTextView;
         view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("hello from \"toast button\"");
                 Toast myToast = Toast.makeText(getActivity(), R.string.toast_msg, Toast.LENGTH_SHORT);
                 myToast.show();
             }
