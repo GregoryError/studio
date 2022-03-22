@@ -26,9 +26,6 @@ private TextView showCountTextView;
         View fragmentFirstLayout = inflater.inflate(R.layout.fragment_first, container, false);
         // Get the count text view
         showCountTextView = fragmentFirstLayout.findViewById(R.id.textview_first);
-
-
-
         return fragmentFirstLayout;
     }
 
@@ -37,7 +34,6 @@ private TextView showCountTextView;
         view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("hello from \"toast button\"");
                 Toast myToast = Toast.makeText(getActivity(), R.string.toast_msg, Toast.LENGTH_SHORT);
                 myToast.show();
             }
@@ -47,6 +43,7 @@ private TextView showCountTextView;
             @Override
             public void onClick(View view) {
                 countMe(view);
+                System.out.println("hello from \"onClick func\"");
             }
         });
     }
