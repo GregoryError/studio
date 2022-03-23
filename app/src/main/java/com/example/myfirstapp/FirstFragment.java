@@ -10,7 +10,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+
+
+
 import com.example.myfirstapp.databinding.FragmentFirstBinding;
+
+import java.util.Random;
 
 public class FirstFragment extends Fragment {
 
@@ -31,6 +36,7 @@ private TextView showCountTextView;
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +50,21 @@ private TextView showCountTextView;
             public void onClick(View view) {
                 countMe(view);
                 System.out.println("hello from \"onClick func\"");
+            }
+        });
+
+        view.findViewById(R.id.random_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+
+                int currentCount = Integer.parseInt(showCountTextView.getText().toString());
+
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
+                NavHostFragment.findNavController(FirstFragment.this).navigate(action);
+
             }
         });
     }
